@@ -1,0 +1,24 @@
+<div class="listDisplay">
+    <div class="container">
+        <h3>Properties in Montreal:</h3>
+        <hr/>
+    </div>
+    <div class="container" style="width: 30%;">
+        {{#each properties}}
+        <div class="memberemail">
+            <div class="row">
+                Address:
+                <span style="font-weight: bold;">{{ this.address }}</span>
+            </div>
+            <div>
+                Neighborhood:
+                <span style="font-weight: bold;">{{ this.nname }}</span>
+            </div>
+            <div>
+                Owner:
+                <span style="font-weight: bold;">{{ this.email }}</span>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

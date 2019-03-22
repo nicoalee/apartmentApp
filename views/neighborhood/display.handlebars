@@ -1,0 +1,20 @@
+<div class="listDisplay">
+    <div class="container">
+        <h3>Neighborhoods in Montreal:</h3>
+        <hr/>
+    </div>
+    <div class="container" style="width: 30%;">
+        {{#each neighborhoods}}
+        <a href="/neighborhoods/{{this.nname}}" class="memberemail">
+            <div style="color: black;" class="row">
+                Name:
+                <span style="font-weight: bold;">{{ this.nname }}</span>
+            </div>
+            <div>
+                Population:
+                <span style="font-weight: bold;">{{ this.population }}</span>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>
