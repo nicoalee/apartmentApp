@@ -12,6 +12,7 @@ const propertyroute = require('./routes/propertyroute')
 app.engine('handlebars', exphb({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
     res.render('home')

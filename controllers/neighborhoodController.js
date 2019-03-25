@@ -14,8 +14,11 @@ function getNeighborhoods(req, res) {
 
     pool.query(query, (err, data) => {
         let dataArr = []
-        if(err) console.log(err)
-        else {
+        if(err) {
+            console.log(err.code + ', this is probably because you are not connected to McGill wifi.');
+            res.render('./err', {error : true})
+            pool.end()
+        } else {
             data.rows.forEach(elem => {
                 let item = {
                     nname: elem.nname,
@@ -23,9 +26,9 @@ function getNeighborhoods(req, res) {
                 }
                 dataArr.push(item)
             })
+            pool.end()
+            res.render('./neighborhood/display', {neighborhoods: dataArr})
         }
-        pool.end()
-        res.render('./neighborhood/display', {neighborhoods: dataArr})
     })
 }
 
@@ -81,9 +84,13 @@ function getAverage(req, res) {
     let query = querypt1 + neighborhoodParam + querypt2
     
     pool.query(query, (err, data) => {
+        let dataArr = []
         let item = {}
-        if(err) console.log(err)
-        else {
+        if(err) { 
+            console.log(err.code)
+            res.render('./err', {error : true})
+            pool.end()
+        } else {
             data.rows.forEach(elem => {
                 item = {
                     nname: elem.nname,
@@ -92,13 +99,11 @@ function getAverage(req, res) {
                     num_reviews: elem.num_reviews
                 }
             })
+            pool.end()
+            res.render('./neighborhood/info', {neighborhoodInfo: item})
         }
-        pool.end()
-        
-        res.render('./neighborhood/info', {neighborhoodInfo: item})
     })
 }
-
 
 module.exports = {
     getNeighborhoods,

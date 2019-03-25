@@ -1,0 +1,19 @@
+<div class="listDisplay">
+    <div class="container">
+        <h3>Update Member Name:</h3>
+        <hr/>
+    </div>
+    <div class="container" style="width: 30%;">
+            <div class="form-group">
+                <label for="emailField">Email address</label>
+                <input type="email" class="form-control" id="emailField" placeholder={{email}} disabled="true">
+            </div>
+        <form action="/members/edit/{{email}}" method="POST">
+            <div class="form-group">
+                <label for="nameField">Name</label>
+                <input class="form-control" id="nameField" placeholder="Name" name="name" required="true">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>

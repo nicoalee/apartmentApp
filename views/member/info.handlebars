@@ -1,0 +1,100 @@
+<div class="listDisplay">
+    <div class="container">
+        <h3>Email: <span style="font-weight: bold;">{{member.email}}</span></h3>
+        <h3>Name: <span style="font-weight: bold;">{{member.name}}</span></h3>
+        <hr/>
+    </div>
+    {{#if msg}}
+        <div style="background-color: #00FF00; color: gray; border-radius: 20px; width: 40%; padding: 1%; margin: 1% auto;">
+            <h4>{{msg}}</h4>
+        </div>
+    {{/if}}
+    <div class="row" style="width: 100%; height: 100%; margin-left: 0px;">
+        <div class="col-md-4" style="background-color: #DCDCDC; height: 100%; position: relative;">
+            <h5 style="background-color: darkgray; width: 80%; position: inline-block; margin: 2% auto; border-radius: 20px; padding: 2%;">Property reviews written by this member:</h5>
+            <hr/>
+            <div style="width: 100%; position: relative;">
+            {{#each reviews.propertyReviews}}
+                <div style="border-style: solid; margins: 1%; margin-bottom: 2%; border-radius: 20px; text-align: left;">
+                    <div style="display: inline-block; width: 100%;">
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Property: <span style="font-weight: bold;">{{this.address}}{{#if this.unit_number}}, Unit: {{this.unit_number}}{{/if}}</span></p>
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Property Rating: <span style="font-weight: bold;">{{this.rating}}</span></p>
+                    </div>
+                    <div style="text-align: left; background-color: white; width: 95%; margin: 0 auto; border-radius: 10px;">
+                        <p style="display: inline-block; margin-left: 8%;">Review:</p>
+                        <p style="margin-left: 8%;">{{this.description}}</p>
+                    </div>
+                    <div style="text-align: left; margin-left: 10%;">
+                        <p>Lease Start: <span style="display: inline-block; font-weight: bold;">{{this.start_lease_date}}</span></p>
+                        <p>Lease End: <span style="display: inline-block; font-weight: bold;">{{this.end_lease_date}}</span></p>
+                    </div>
+                </div>
+            {{/each}}
+            {{#unless reviews.propertyReviews}}
+                <div style="background-color: #ff6961; border-radius: 20px; padding: 2%;">
+                    <p>No property reviews have been found for this member!</p>
+                </div>
+            {{/unless}}
+            </div>
+        </div>
+        <div class="col-md-4" style="background-color: #D3D3D3; height: 100%; position: relative;">
+            <h5 style="background-color: darkgray; width: 80%; position: inline-block; margin: 2% auto; border-radius: 20px; padding: 2%;">Owner reviews written by this member:</h5>
+            <hr>
+            <div style="width: 100%; position: relative;">
+            {{#each reviews.ownerReviews}}
+                <div style="border-style: solid; margins: 1%; margin-bottom: 2%; border-radius: 20px; text-align: left;">
+                    <div style="display: inline-block; width: 100%;">
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Owner: <span style="font-weight: bold;"></span></p>
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Owner Rating: <span style="font-weight: bold;">{{this.rating}}</span></p>
+                    </div>
+                    <div style="text-align: left; background-color: white; width: 95%; margin: 0 auto; border-radius: 10px;">
+                        <p style="display: inline-block; margin-left: 8%;">Review:</p>
+                        <p style="margin-left: 8%;">{{this.description}}</p>
+                    </div>
+                </div>
+            {{/each}}
+            {{#unless reviews.ownerReviews}}
+                <div style="background-color: #ff6961; border-radius: 20px; padding: 2%;">
+                    <p>No owner reviews have been found for this member!</p>
+                </div>
+            {{/unless}}
+            </div>
+        </div>
+        <div class="col-md-4" style="background-color: #C0C0C0; height: 100%; position: relative;">
+            <h5 style="background-color: darkgray; width: 80%; position: inline-block; margin: 2% auto; border-radius: 20px; padding: 2%;">Neighborhood reviews written by this member:</h5>
+            <hr>
+            <div style="width: 100%; position: relative;">
+            {{#each reviews.neighborhoodReviews}}
+                <div style="border-style: solid; margins: 1%; margin-bottom: 2%; border-radius: 20px; text-align: left;">
+                    <div style="display: inline-block; width: 100%;">
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Neighborhood: <span style="font-weight: bold;">{{this.nname}}</span></p>
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Neighborhood Rating: <span style="font-weight: bold;">{{this.rating}}</span></p>
+                    </div>
+                    <div style="text-align: left; background-color: white; width: 95%; margin: 0 auto; border-radius: 10px;">
+                        <p style="display: inline-block; margin-left: 8%;">Review:</p>
+                        <p style="margin-left: 8%;">{{this.description}}</p>
+                    </div>
+                </div>
+            {{/each}}
+            {{#unless reviews.neighborhoodReviews}}
+            <div style="background-color: #ff6961; border-radius: 20px; padding: 2%;">
+                <p>No neighborhood reviews have been found for this member!</p>
+            </div>
+            {{/unless}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- 
+{{#each reviews.ownerReviews }}
+    <div>{{this}}</div>
+{{/each}}
+
+{{#each reviews.neighborhoodReviews }}
+    <div>{{this}}</div>
+{{/each}} --}}
+
+{{!-- propertyReviews: propertyReviews.rows,
+ownerReviews: ownerReviews.rows,
+neighborhoodReviews: neigbhorhoodReviews.rows --}}

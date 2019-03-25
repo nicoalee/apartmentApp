@@ -1,0 +1,10 @@
+    {{#if error}}
+    <div class="container" style="text-align: center;">
+        <div class="error" style="position: relative; width: 50%; padding: 2%; margin: 0 auto; margin-top: 15%;" role="alert">
+            <h1 style="background-color: darkgray; border-radius: 10px;">Warning!</h1>
+            <p>
+                <span style="font-weight: bold; color: darkgray">ERROR: {{ error }}!</span> This may be due to a database connection problem. Please make sure you are on McGill wifi, or are using a McGill VPN.
+            </p>
+        </div>
+    </div>
+    {{/if}}

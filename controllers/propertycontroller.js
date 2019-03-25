@@ -14,8 +14,11 @@ const { Pool, Client } = require('pg')
 
 //     pool.query(query, (err, data) => {
 //         let dataArr = []
-//         if(err) console.log(err)
-//         else {
+//         if(err) {
+//             console.log(err.code + ', this is probably because you are not connected to McGill wifi.');
+//             res.render('./err', {error : true})
+//             pool.end()
+//         } else {
 //             data.rows.forEach(elem => {
 //                 let item = {
 //                     address: elem.address,
@@ -24,9 +27,9 @@ const { Pool, Client } = require('pg')
 //                 }
 //                 dataArr.push(item)
 //             })
+//             pool.end()
+//             res.render('./property/display', {properties: dataArr})
 //         }
-//         pool.end()
-//         res.render('./property/display', {properties: dataArr})
 //     })
 // }
 

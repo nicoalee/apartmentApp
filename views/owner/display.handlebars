@@ -3,9 +3,24 @@
         <h3>Owner Emails:</h3>
         <hr/>
     </div>
-    <div class="container" style="width: 30%;">
+    <div class="container" style="width: 45%;">
+        {{#if Success}}
+            <div style="background-color: #00FF00; color: gray; border-radius: 20px; width: 70%; padding: 1%; margin: 4% auto;">
+                <h4>{{Success}}</h4>
+            </div>
+        {{/if}}
         {{#each owners}}
-        <div class="row memberemail">{{ this }}</div>
+            <a href="/owners/{{ this.email }}/{{this.name}}" class="memberemail">
+                <div style="display: inline-block; float: left; margin-left: 5%;">
+                    <div style="color: black; display: block; text-align: left;">
+                        Name: <span style="font-weight: bold;">{{ this.name }}</span>
+                    </div>
+                    <div style="color: black; display: block; text-align: left">
+                        Email: <span style="font-weight: bold;">{{ this.email }}</span>
+                    </div>
+                </div>
+                <a class="btn btn-primary" style="position: relative; right: 8px; float: right; transform: translateY(-140%);" href="/owners/edit/{{this.email}}">Update</a>
+            </a>
         {{/each}}
     </div>
 </div>

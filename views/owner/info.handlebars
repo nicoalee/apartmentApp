@@ -1,0 +1,50 @@
+<div class="listDisplay">
+    <div class="container">
+        <div>
+            <h3>Email: <span style="font-weight: bold;">{{owner.email}}</span></h3>
+            <h3>Name: <span style="font-weight: bold;">{{owner.name}}</span></h3>
+        </div>
+        <hr/>
+    </div>
+    {{#if msg}}
+        <div style="background-color: #00FF00; color: gray; border-radius: 20px; width: 40%; padding: 1%; margin: 1% auto;">
+            <h4>{{msg}}</h4>
+        </div>
+    {{/if}}
+    <div class="container" style="width: 100%; height: 100%;">
+        <div class="col-md-6" style="background-color: gray; height: 100%;">
+            <div>
+                <h4>Average rating of all owner reviews: <span style="font-weight: bold;">{{avgRating.avg_rating}}</span>{{#unless avgRating.avg_rating}} <span style="font-weight: bold; color: darkred;">No reviews for this owner!</span> {{/unless}}</h4>
+                <h4>Number of owner reviews: <span style="font-weight: bold;">{{avgRating.num_reviews}}</span>{{#unless avgRating.num_reviews}} <span style="font-weight: bold; color: darkred;">No reviews for this owner!</span> {{/unless}}</h4>
+            </div>
+            <hr/>
+            {{#each allReviews}}
+                <div style="border-style: solid; margins: 1%; margin-bottom: 2%; border-radius: 20px; text-align: left;">
+                    <div style="display: inline-block; width: 100%;">
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Reviewed By: <span style="font-weight: bold;">{{this.revieweremail}}</span></p>
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Rating: <span style="font-weight: bold;">{{this.rating}}</span></p>
+                    </div>
+                    <div style="text-align: left; background-color: white; width: 95%; margin: 0 auto; border-radius: 10px;">
+                        <p style="display: inline-block; margin-left: 8%;">Review:</p>
+                        <p style="margin-left: 8%;">{{this.description}}</p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="col-md-6" style="background-color: darkgray; height: 100%;">
+            <div>
+                <h4>Average rating for all properties: <span style="font-weight: bold;">{{allAverages.avg}}</span>{{#unless allAverages.avg}} <span style="font-weight: bold; color: darkred;">No properties for this owner!</span> {{/unless}}</h4>
+                <h4>Number of property reviews: <span style="font-weight: bold;">{{allAverages.count}}</span>{{#unless allAverages.count}} <span style="font-weight: bold; color: darkred;">No properties for this owner!</span> {{/unless}}</h4>
+            </div>
+            <hr/>
+            {{#each allProperties}}
+                <div style="border-style: solid; margins: 1%; margin-bottom: 2%; border-radius: 20px; text-align: left;">
+                    <div style="display: inline-block; width: 100%; margin-top:2%;">
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Location: <span style="font-weight: bold;">{{this.address}}</span></p>
+                        <p style="display: block; float: left; margin-left: 10%; width: 100%;">Neighborhood: <span style="font-weight: bold;">{{this.nname}}</span></p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
