@@ -26,7 +26,4 @@
     "node": "10.x"
   },
   "homepage": "https://github.com/nicoalee/apartmentApp#readme",
-  "config": {
-    "port": "8080"
-  }
 }

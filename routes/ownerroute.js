@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-const ownercontroller = require('../controllers/ownercontroller')
+const ownercontroller = require('../controllers/ownerController')
 
 router.route('/')
     .get(ownercontroller.getOwners)
