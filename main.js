@@ -29,4 +29,3 @@ const port = process.env.PORT || 5000
 app.listen(port, function () {
   console.log(`...successfully connected to port ${port}`)
 })
-console.log(process.env.PORT);

@@ -105,7 +105,6 @@ function createMember(req, res) {
 
     memberExists(email)
         .then((succ) => {
-
             if(succ) {
                 res.render('./member/new', {ErrMsg: "The member " + email + " already exists"})
             } else {

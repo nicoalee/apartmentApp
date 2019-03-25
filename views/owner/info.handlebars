@@ -33,8 +33,9 @@
         </div>
         <div class="col-md-6" style="background-color: darkgray; height: 100%;">
             <div>
-                <h4>Average rating for all properties: <span style="font-weight: bold;">{{allAverages.avg}}</span>{{#unless allAverages.avg}} <span style="font-weight: bold; color: darkred;">No properties for this owner!</span> {{/unless}}</h4>
-                <h4>Number of property reviews: <span style="font-weight: bold;">{{allAverages.count}}</span>{{#unless allAverages.count}} <span style="font-weight: bold; color: darkred;">No properties for this owner!</span> {{/unless}}</h4>
+                <h4>Average rating for all properties: <span style="font-weight: bold;">{{allAverages.avg}}</span>{{#unless allAverages.avg}} <span style="font-weight: bold; color: darkred;">No property reviews for this owner!</span> {{/unless}}</h4>
+                <h4>Number of property reviews: <span style="font-weight: bold;">{{allAverages.count}}</span>{{#unless allAverages.count}} <span style="font-weight: bold; color: darkred;">No property reviews for this owner!</span> {{/unless}}</h4>
+                <h4>Properties Owned:</h4>
             </div>
             <hr/>
             {{#each allProperties}}

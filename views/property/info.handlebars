@@ -16,7 +16,7 @@
     <div style="width: 30%; margin: 0 auto;">
         {{#unless reviews}}
             <div style="background-color: #ff6961; border-radius: 20px; padding: 2%;">
-                <p>No listed properties for this Neighborhood yet!</p>
+                <p>No listed reviews for this property yet!</p>
             </div>
         {{/unless}}
     </div>
@@ -25,7 +25,7 @@
             <div style="border-style: solid; width: 50%; margin: 0 auto; padding: 1%; background-color: gray; margin-bottom: 2%; border-radius: 20px; text-align: left;">
                 <div style="display: inline-block; width: 100%;">
                     <p style="display: block; float: left; margin-left: 10%; width: 100%;">Address: <span style="font-weight: bold;">{{this.address}}{{#if unit_number}}, Unit {{this.unit_number}}{{/if}}</span></p>
-                    <p style="display: block; float: left; margin-left: 10%; width: 100%;">Neighborhood Rating: <span style="font-weight: bold;">{{this.rating}}</span></p>
+                    <p style="display: block; float: left; margin-left: 10%; width: 100%;">Property Rating: <span style="font-weight: bold;">{{this.rating}}</span></p>
                 </div>
                 <div style="text-align: left; background-color: white; width: 95%; margin: 0 auto; border-radius: 10px;">
                     <p style="display: inline-block; margin-left: 8%;">Review:</p>
