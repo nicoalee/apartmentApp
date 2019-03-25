@@ -1,24 +1,31 @@
 <div class="listDisplay">
     <div class="container">
-        <h3>Properties in Montreal:</h3>
+        <h3>Properties:</h3>
         <hr/>
     </div>
-    <div class="container" style="width: 30%;">
+    <div class="container" style="width: 45%;">
+        {{#if msg}}
+            <div style="background-color: #00FF00; color: gray; border-radius: 20px; width: 70%; padding: 1%; margin: 4% auto;">
+                <h4>{{msg}}</h4>
+            </div>
+        {{/if}}
         {{#each properties}}
-        <div class="memberemail">
-            <div class="row">
-                Address:
-                <span style="font-weight: bold;">{{ this.address }}</span>
-            </div>
-            <div>
-                Neighborhood:
-                <span style="font-weight: bold;">{{ this.nname }}</span>
-            </div>
-            <div>
-                Owner:
-                <span style="font-weight: bold;">{{ this.email }}</span>
-            </div>
-        </div>
+            <a href="/properties/{{ this.address }}/{{this.nname}}" class="memberemail" style="margin-bottom: 5%;">
+                <div style="display: inline-block;">
+                    <div style="color: black; display: block;">
+                        Name: <span style="font-weight: bold;">{{ this.address }}</span>
+                    </div>
+                    <div style="color: black; display: block;">
+                        Neighborhood: <span style="font-weight: bold;">{{ this.nname }}</span>
+                    </div>
+                    <div style="color: black; display: block;">
+                        Owner: <span style="font-weight: bold;">{{ this.email }}</span>
+                        {{#unless this.email}}
+                            <span style="font-weight: bold; color: darkred;">No owner listed!</span>
+                        {{/unless}}
+                    </div>
+                </div>
+            </a>
         {{/each}}
     </div>
 </div>

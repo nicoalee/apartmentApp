@@ -1,0 +1,117 @@
+<div class="listDisplay">
+    <div class="container">
+        <h3>Create Review:</h3>
+        <hr/>
+    </div>
+    {{#if ErrMsg}}
+        <div style="background-color: #CC0202; color: gray; border-radius: 20px; width: 40%; padding: 1%; margin: 4% auto;">
+            <h4>{{ErrMsg}}</h4>
+        </div>
+    {{/if}}
+    <div class="container" style="width: 30%;">
+        <form action="/reviews/create" method="POST" style="margin-bottom: 15%;">
+
+            <div class="form-group">
+                <label for="emailField">Member Email</label>
+                <input type="email" class="form-control" id="emailField" placeholder="Member Email" name="email" required="true">
+            </div>
+
+            <div class="form-group">
+                <label for="reviewType">Select Review Type</label>
+                <select  required="true" class="form-control" name="review" id="reviewType">
+                    <option>Property Review</option>
+                    <option>Neighborhood Review</option>
+                    <option>Owner Review</option>
+                </select>
+            </div>
+
+            <div id="neigborhoodFields" style="display: none;">
+                <div class="form-group">
+                    <label for="nameField">Select Neighborhood</label>
+                    <select class="form-control" id="nameField" name="nname">
+                        {{#each neighborhoods}}
+                        <option value={{this}}>{{this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+
+            <div id="propertyFields">
+                <div class="form-group">
+                    <label for="addressField">Address</label>
+                    <input class="form-control" id="addressField" placeholder="Address" name="address" required="true">
+                </div>
+                <div class="form-group">
+                    <label for="startDateField">Select Lease Start Date (optional)</label>
+                    <input type="date" class="form-control" name="startDate" min="2000-01-01" max="2019-05-25">
+                </div>
+                <div class="form-group">
+                    <label for="startDateField">Select Lease End Date (optional)</label>
+                    <input type="date" class="form-control" name="endDate" min="2000-01-01" max="2019-05-25">
+                </div>
+                <div class="form-group">
+                    <label for="startDateField">Select Unit Number (optional)</label>
+                    <input type="number" min=1 class="form-control" name="unitNumber" oninput="this.value = Math.abs(this.value)">
+                </div>
+            </div>
+
+            <div id="ownerFields" style="display: none;">
+                <div class="form-group">
+                    <label for="ownerEmailField">Owner Email</label>
+                    <input type="email" class="form-control" id="ownerEmailField" placeholder="Owner Email" name="ownerEmail">
+                </div>
+            </div>
+
+            <label for="reviewType">Select Rating</label>
+            <div class="form-group" style="text-align: left;">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value=1>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value=2>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios3" value=3 checked>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios4" value=4>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios5" value=5>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                        <span class="glyphicon glyphicon-star" style="color: #f2de13;"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="textField">Review (optional)</label>
+                <textarea id="textField" class="form-control" rows="5" name="description"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>

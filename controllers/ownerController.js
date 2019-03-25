@@ -75,14 +75,6 @@ function getOwnerInfo(req, res) {
                                                     console.log(allReviews.name + ': ' + allReviews.code);
                                                     res.render('./err', {error: allReviews.code})
                                                 } else {
-                                                    console.log("allProperties: ");
-                                                    console.log(allProperties);
-                                                    console.log("allAverages: ");
-                                                    console.log(allAverages);
-                                                    console.log("avgRating: ");
-                                                    console.log(avgRating);
-                                                    console.log("allReviews: ");
-                                                    console.log(allReviews);
                                                     
                                                     if(avgRating.length != 0) {
                                                         avgRating[0].avg_rating = (Math.round(avgRating[0].avg_rating * 100)/100).toString()

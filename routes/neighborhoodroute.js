@@ -7,6 +7,6 @@ router.route('/')
     .get(neighborhoodcontroller.getNeighborhoods)
 
 router.route('/:neighborhood')
-    .get(neighborhoodcontroller.getAverage)
+    .get(neighborhoodcontroller.getProperties)
 
 module.exports = router

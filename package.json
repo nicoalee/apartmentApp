@@ -1,0 +1,32 @@
+{
+  "name": "apartmentapp",
+  "version": "1.0.0",
+  "description": "A node.js app with raw SQL queries to the database.",
+  "main": "main.js",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "pg": "^7.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoalee/apartmentApp.git"
+  },
+  "author": "Nicholas Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicoalee/apartmentApp/issues"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "homepage": "https://github.com/nicoalee/apartmentApp#readme",
+  "config": {
+    "port": "8080"
+  }
+}

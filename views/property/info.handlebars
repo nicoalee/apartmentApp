@@ -1,0 +1,41 @@
+<div class="listDisplay">
+    <div class="container">
+        <div>
+            <h3>Address: <span style="font-weight: bold;">{{address}}</span></h3>
+            <h3>Neighborhood: <span style="font-weight: bold;">{{neighborhood}}</span></h3>
+            <h3>Average Rating: <span style="font-weight: bold;">{{averages.avg}}</span></h3>
+            <h3>Total Reviews: <span style="font-weight: bold;">{{averages.count}}</span></h3>
+        </div>
+        <hr/>
+    </div>
+    {{#if msg}}
+        <div style="background-color: #00FF00; color: gray; border-radius: 20px; width: 40%; padding: 1%; margin: 1% auto;">
+            <h4>{{msg}}</h4>
+        </div>
+    {{/if}}
+    <div style="width: 30%; margin: 0 auto;">
+        {{#unless reviews}}
+            <div style="background-color: #ff6961; border-radius: 20px; padding: 2%;">
+                <p>No listed properties for this Neighborhood yet!</p>
+            </div>
+        {{/unless}}
+    </div>
+    <div>
+        {{#each reviews}}
+            <div style="border-style: solid; width: 50%; margin: 0 auto; padding: 1%; background-color: gray; margin-bottom: 2%; border-radius: 20px; text-align: left;">
+                <div style="display: inline-block; width: 100%;">
+                    <p style="display: block; float: left; margin-left: 10%; width: 100%;">Address: <span style="font-weight: bold;">{{this.address}}{{#if unit_number}}, Unit {{this.unit_number}}{{/if}}</span></p>
+                    <p style="display: block; float: left; margin-left: 10%; width: 100%;">Neighborhood Rating: <span style="font-weight: bold;">{{this.rating}}</span></p>
+                </div>
+                <div style="text-align: left; background-color: white; width: 95%; margin: 0 auto; border-radius: 10px;">
+                    <p style="display: inline-block; margin-left: 8%;">Review:</p>
+                    <p style="margin-left: 8%;">{{this.description}}</p>
+                </div>
+                <div style="text-align: left; margin-left: 10%;">
+                    <p>Lease Start: <span style="display: inline-block; font-weight: bold;">{{this.start_lease_date}}</span></p>
+                    <p>Lease End: <span style="display: inline-block; font-weight: bold;">{{this.end_lease_date}}</span></p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

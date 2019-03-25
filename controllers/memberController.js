@@ -73,12 +73,14 @@ function getMemberReviews(req, res) {
 
                                         // fixing dates
                                         propertyReviews.forEach((element) => {
-                                            let startDate = element.start_lease_date
-                                            let endDate = element.end_lease_date
-                                            let startDateStr = startDate.getDate() + "/" + (startDate.getMonth()+1) + "/" + startDate.getFullYear()
-                                            let endDateStr = endDate.getDate() + "/" + (endDate.getMonth()+1) + "/" + endDate.getFullYear()            
-                                            element.start_lease_date = startDateStr
-                                            element.end_lease_date = endDateStr
+                                            if(element.start_lease_date != null) {
+                                                let startDate = element.start_lease_date
+                                                let endDate = element.end_lease_date
+                                                let startDateStr = startDate.getDate() + "/" + (startDate.getMonth()+1) + "/" + startDate.getFullYear()
+                                                let endDateStr = endDate.getDate() + "/" + (endDate.getMonth()+1) + "/" + endDate.getFullYear()            
+                                                element.start_lease_date = startDateStr
+                                                element.end_lease_date = endDateStr
+                                            }
                                         });                                        
 
                                         let reviews = { propertyReviews, ownerReviews, neighborhoodReviews }
@@ -225,7 +227,6 @@ function updateMember(req, res) {
                 req.params.msg = "Success! Member " + email + " updated with new name: " + name
                 getMemberReviews(req, res)
             }
-
         })
 }
 

@@ -1,20 +1,25 @@
 <div class="listDisplay">
     <div class="container">
-        <h3>Neighborhoods in Montreal:</h3>
+        <h3>Neighborhoods:</h3>
         <hr/>
     </div>
     <div class="container" style="width: 30%;">
+        {{#if Success}}
+            <div style="background-color: #00FF00; color: gray; border-radius: 20px; width: 70%; padding: 1%; margin: 4% auto;">
+                <h4>{{Success}}</h4>
+            </div>
+        {{/if}}
         {{#each neighborhoods}}
-        <a href="/neighborhoods/{{this.nname}}" class="memberemail">
-            <div style="color: black;" class="row">
-                Name:
-                <span style="font-weight: bold;">{{ this.nname }}</span>
-            </div>
-            <div>
-                Population:
-                <span style="font-weight: bold;">{{ this.population }}</span>
-            </div>
-        </a>
+            <a href="/neighborhoods/{{ this.nname }}" class="memberemail" style="margin-top: 5%;">
+                <div style="display: inline-block;">
+                    <div style="color: black; display: block; text-align: center;">
+                        Name: <span style="font-weight: bold;">{{ this.nname }}</span>
+                    </div>
+                    <div style="color: black; display: block; text-align: center;">
+                        Email: <span style="font-weight: bold;">{{ this.population }}</span>
+                    </div>
+                </div>
+            </a>
         {{/each}}
     </div>
 </div>

@@ -1,13 +1,26 @@
 <div class="listDisplay">
     <div class="container">
-        <h3>Neighborhood: <span style="font-weight: bold;">{{neighborhoodInfo.nname}}</span></h3>
-        <h3>Address: <span style="font-weight: bold;">{{neighborhoodInfo.address}}</span></h3>
-        <h3>Average Rating: <span style="font-weight: bold;">{{neighborhoodInfo.avg_rating}}</span></h3>
-        <h3>Number of Reviews: <span style="font-weight: bold;">{{neighborhoodInfo.num_reviews}}</span></h3>
+        <h3>Neighborhood: <span style="font-weight: bold;">{{details.name}}</span></h3>
+        <h3>Average Neighborhood Rating: <span style="font-weight: bold;">{{details.averageReview}}</span></h3>
+        <h3>Total Reviews: <span style="font-weight: bold;">{{details.numReviews}}</span></h3>
         <hr/>
     </div>
     <div class="container" style="width: 30%;">
         <div>
+            {{#unless properties}}
+                <div style="background-color: #ff6961; border-radius: 20px; padding: 2%;">
+                    <p>No listed properties for this Neighborhood yet!</p>
+                </div>
+            {{/unless}}
+            {{#each properties}}
+                <div style="border-style: solid; margins: 1%; margin-bottom: 2%; border-radius: 20px; text-align: center; background-color: gray;">
+                    <div style="display: inline-block; width: 100%;">
+                        <p style="display: block; width: 100%;">Property: <span style="font-weight: bold;">{{this.address}}</span></p>
+                        <p style="display: block; width: 100%;">Average Property Rating: <span style="font-weight: bold;">{{this.average_rating}}</span></p>
+                        <p style="display: block; width: 100%;">Number of Reviews: <span style="font-weight: bold;">{{this.rating_count}}</span></p>
+                    </div>
+                </div>
+            {{/each}}
         </div>
     </div>
 </div>
